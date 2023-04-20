@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+motor = "*"
+pydantic = {extras = ["email"], version = "*"}
+dnspython = "*"
+
+[dev-packages]
+pytest = "*"
+black = "*"
+pip-tools = "*"
+flake8 = "*"
+pre-commit = "*"
+uvicorn = "*"
+
+[requires]
+python_version = "3.11"
+
+[scripts]
+api = "uvicorn src.api.main:app --reload --port 8000 --host 0.0.0.0"
+test = "python -m pytest"
+lint = "pre-commit run --all-files"
